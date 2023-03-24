@@ -80,10 +80,6 @@
         </xacro:inertial_cylinder>
     </link>
 
-    <xacro:wheel_joint prefix="left" origin="0 0.045 0.04"/>
-    <xacro:wheel prefix="left"/>
-
-
     <!-- RIGHT WHEEL LINK -->
 
     <joint name="right_gearbox_joint" type="fixed">
@@ -109,7 +105,35 @@
         </xacro:inertial_cylinder> -->
     </link>
 
-    <xacro:wheel_joint prefix="right" origin="0 -0.045 0.04"/>
-    <xacro:wheel prefix="right"/> 
+    <joint name="right_wheel_joint" type="continuous">
+        <origin xyz="0 -0.1715 0" rpy="${pi/2} 0 0"/>
+        <axis xyz="0 0 1"/>
+        <parent link="base_link"/>
+        <child link="right_wheel"/>
+        <!-- right xyz="0 -0.045 0.04" -->
+        <!-- left xyz="0 0.045 0.04" -->
+    </joint>
+
+    <xacro:wheel_link prefix="right"/> 
+
+    <joint name="left_wheel_joint" type="continuous">
+        <origin xyz="0 0.1715 0" rpy="${pi/2} 0 0"/>
+        <axis xyz="0 0 1"/>
+        <parent link="base_link"/>
+        <child link="left_wheel"/>
+        <!-- right xyz="0 -0.045 0.04" -->
+        <!-- left xyz="0 0.045 0.04" -->
+    </joint>
+
+    <xacro:wheel_link prefix="left"/>
+
+    <xacro:caster_wheel_joint prefix="front_left" origin="0.22 0.178 -0.005"/>
+    <xacro:caster_wheel prefix="front_left"/>
+    <xacro:caster_wheel_joint prefix="front_right" origin="0.22 -0.178 -0.005"/>
+    <xacro:caster_wheel prefix="front_right"/>
+    <xacro:caster_wheel_joint prefix="rear_left" origin="-0.22 0.178 -0.005"/>
+    <xacro:caster_wheel prefix="rear_left"/>
+    <xacro:caster_wheel_joint prefix="rear_right" origin="-0.22 -0.178 -0.005"/>
+    <xacro:caster_wheel prefix="rear_right"/>
 
 </robot>

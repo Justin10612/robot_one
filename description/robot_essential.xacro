@@ -1,20 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_essential">
 
-    <!-- WHEEL JOINT -->
-    <xacro:macro name="wheel_joint" params="prefix origin">
-        <joint name="${prefix}_wheel_joint" type="fixed">
-            <origin xyz="${origin}" rpy="0 0 0"/>
-            <axis xyz="0 1 0"/>
-            <parent link="${prefix}_gearbox"/>
-            <child link="${prefix}_wheel"/>
-            <!-- right xyz="0 -0.045 0.04" -->
-            <!-- left xyz="0 0.045 0.04" -->
-        </joint>
-    </xacro:macro>
-
     <!-- WHEEL LINK -->
-    <xacro:macro name="wheel" params="prefix">
+    <xacro:macro name="wheel_link" params="prefix">
         <link name="${prefix}_wheel">
             <visual>
                 <geometry>
@@ -54,13 +42,13 @@
         </link>
     </xacro:macro>
 
-    <!-- CASTER WHEEL LINK -->
-    <!-- <xacro:macro name="caster_wheel_joint">
-        <joint name="caster_wheel_joint" type="fixed">
-            <parent link="chassis"/>
-            <child link="caster_wheel"/>
-            <origin xyz="0.24 0 0"/>
+    <!-- Caster Wheel JOINT -->
+    <xacro:macro name="caster_wheel_joint" params="prefix origin">
+        <joint name="${prefix}_caster_wheel_joint" type="fixed">
+            <parent link="base_link"/>
+            <child link="${prefix}_caster_wheel"/>
+            <origin xyz="${origin}"/>
         </joint>
-    </xacro:macro> -->
+    </xacro:macro>
 
 </robot>
