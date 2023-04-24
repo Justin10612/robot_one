@@ -139,7 +139,7 @@
     <gazebo>
     <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
         <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type>
-        <parameters>/home/lin/gazebo_ros2_control/src/r2d/config/r2d_joint_trajectory.yaml</parameters>
+        <parameters>/home/sss0301/ros2_ws/src/robot_one/config/robot_control.yaml</parameters>
     </plugin>
     </gazebo>
 
