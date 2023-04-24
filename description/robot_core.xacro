@@ -39,7 +39,7 @@
         <visual>
             <origin rpy="${pi/2} 0 ${pi/2}" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://robot_one/meshes/chassis.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="$(find robot_one)/meshes/chassis.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="white"/>
         </visual>
@@ -66,7 +66,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="${pi/2} 0 ${pi}"/>
             <geometry>
-                <mesh filename="package://robot_one/meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="$(find robot_one)/meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="blue"/>
         </visual>
@@ -91,7 +91,7 @@
     <link name="right_gearbox">
         <visual>
             <geometry>
-                <mesh filename="package://robot_one/meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="$(find robot_one)/meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="blue"/>
         </visual>
@@ -135,12 +135,5 @@
     <xacro:caster_wheel prefix="rear_left"/>
     <xacro:caster_wheel_joint prefix="rear_right" origin="-0.22 -0.178 -0.005"/>
     <xacro:caster_wheel prefix="rear_right"/>
-
-    <gazebo>
-    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-        <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type>
-        <parameters>/home/sss0301/ros2_ws/src/robot_one/config/robot_control.yaml</parameters>
-    </plugin>
-    </gazebo>
 
 </robot>
