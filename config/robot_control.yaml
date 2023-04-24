@@ -1,0 +1,9 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # H
+ 
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+ 
+    diffbot_base_controller:
+      type: diff_drive_controller/DiffDriveController
