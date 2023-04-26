@@ -39,7 +39,7 @@
         <visual>
             <origin rpy="${pi/2} 0 ${pi/2}" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="$(find robot_one)/meshes/chassis.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://meshes/chassis.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="white"/>
         </visual>
@@ -66,7 +66,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="${pi/2} 0 ${pi}"/>
             <geometry>
-                <mesh filename="$(find robot_one)/meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="blue"/>
         </visual>
@@ -91,7 +91,7 @@
     <link name="right_gearbox">
         <visual>
             <geometry>
-                <mesh filename="$(find robot_one)/meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="blue"/>
         </visual>
