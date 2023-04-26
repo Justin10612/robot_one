@@ -22,7 +22,7 @@ def generate_launch_description():
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
             PathJoinSubstitution(
-                [FindPackageShare("r2d"), "urdf", "r2d.urdf.xacro"]
+                [FindPackageShare("robot_one"), "description", "robot.urdf.xacro"]
             ),
         ]
     )
@@ -52,7 +52,7 @@ def generate_launch_description():
         package='gazebo_ros',
         executable='spawn_entity.py',
         arguments=["-topic", "/robot_description", 
-                    "-entity", "r2d",
+                    "-entity", "robot_one",
                     "-x", '0.0',
                     "-y", '0.0',
                     "-z", '1.0']
@@ -69,11 +69,7 @@ def generate_launch_description():
         cmd=['ros2', 'control', 'load_controller', '--set-state', 'start','joint_state_broadcaster'],
         output='screen'
     ),
- 
-    ExecuteProcess(
-        cmd=['ros2', 'control', 'load_controller', '--set-state', 'start', 'joint_trajectory_controller'],
-        output='screen'
-    ),
+
     ExecuteProcess(
         cmd=['ros2', 'control', 'load_controller', '--set-state', 'start', 'diffbot_base_controller'],
         output='screen'
