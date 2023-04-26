@@ -34,12 +34,18 @@ def generate_launch_description():
                         arguments=['-topic', 'robot_description',
                                    '-entity', 'my_bot'],
                         output='screen')
-
-
+    
+    controller = Node(
+        package= 'teleop_twist_keyboard',
+        executable= 'teleop_twist_keyboard',
+        prefix = 'xterm -e',
+        node_name='teleop'
+    )
 
     # Launch them all!
     return LaunchDescription([
         rsp,
         gazebo,
-        spawn_entity,
+        controller,
+        spawn_entity
     ])
