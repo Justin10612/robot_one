@@ -105,7 +105,7 @@
     </link>
 
     <joint name="right_wheel_joint" type="continuous">
-        <origin xyz="0 0.1715 0.01" rpy="${pi/2} 0 0"/>
+        <origin xyz="0 0.1715 0.015" rpy="${pi/2} 0 0"/>
         <axis xyz="0 0 1" rpy="0 0 0"/>
         <parent link="base_link"/>
         <child link="right_wheel"/>
@@ -116,7 +116,7 @@
     <xacro:wheel_link prefix="right"/> 
 
     <joint name="left_wheel_joint" type="continuous">
-        <origin xyz="0 -0.1715 0.01" rpy="${pi/2} 0 0"/>
+        <origin xyz="0 -0.1715 0.015" rpy="${pi/2} 0 0"/>
         <axis xyz="0 0 1" rpy="0 0 0"/>
         <parent link="base_link"/>
         <child link="left_wheel"/>
@@ -134,12 +134,4 @@
     <xacro:caster_wheel prefix="rear_left"/>
     <xacro:caster_wheel_joint prefix="rear_right" origin="-0.22 -0.178 -0.005"/>
     <xacro:caster_wheel prefix="rear_right"/>
-
-    <gazebo>
-    <plugin filename="libgazebo_gazebo_system.so" name="gazebo_ros2_control">
-        <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type>
-        <parameters>/home/sss0301/ros2_ws/src/robot_one/config/robot_control.yaml</parameters>
-    </plugin>
-    </gazebo>
-
 </robot>
