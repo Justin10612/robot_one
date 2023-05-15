@@ -1,8 +1,17 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robot">
 
-    <xacro:include filename="robot_core.xacro" />
+<xacro:include filename="robot_core.xacro" />
+
+<xacro:arg name="use_ros2_control" default="true"/>
+
+<!-- BELOW:selector -->
+<xacro:if value="$(arg use_ros2_control)">
     <xacro:include filename="ros2_control.xacro" />
-    <!-- <xacro:include filename="gazebo_control.xacro" /> -->
+</xacro:if>
+<!-- If (use_ros2_control is false, it would run "gazebo_control") -->
+<xacro:unless value="$(arg use_ros2_control)">
+    <xacro:include filename="gazebo_control.xacro" />
+</xacro:unless>
     
 </robot>
