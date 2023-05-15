@@ -39,13 +39,13 @@
         <visual>
             <origin rpy="${pi/2} 0 ${pi/2}" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://robot_one/meshes/chassis.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://robot_one/description/meshes/chassis.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="Gazebo/white"/>
         </visual>
         <!-- <collision>
             <geometry>
-                <mesh filename="package://robot_one/meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://robot_one/description/meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision> -->
         <!-- <xacro:inertial_box mass="0.5" x="0.3" y="0.3" z="0.15">
@@ -65,13 +65,13 @@
         <visual>
             <origin xyz="0 0 0" rpy="${pi/2} 0 ${pi}"/>
             <geometry>
-                <mesh filename="package://robot_one/meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://robot_one/description/meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="Gazebo/blue"/>
         </visual>
         <!-- <collision>
             <geometry>
-               <mesh filename="package://robot_one/meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
+               <mesh filename="package://robot_one/description/meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision> -->
         <!-- <xacro:inertial_cylinder mass="0.1" length="0.04" radius="0.05">
@@ -90,13 +90,13 @@
     <link name="right_gearbox">
         <visual>
             <geometry>
-                <mesh filename="package://robot_one/meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://robot_one/description/meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="Gazebo/blue"/>
         </visual>
         <!-- <collision>
             <geometry>
-                <mesh filename="package://robot_one/meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://robot_one/description/meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision> -->
         <!-- <xacro:inertial_cylinder mass="0.1" length="0.04" radius="0.05">
