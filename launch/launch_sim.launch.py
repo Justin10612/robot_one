@@ -72,10 +72,10 @@ def generate_launch_description():
     # Launch them all!
     return LaunchDescription([
         rsp,
-        joint_broad_spawner,
-        diff_drive_spawner,
         #joystick,
         #twist_mux,
         gazebo,
-        spawn_entity
+        spawn_entity,
+        joint_broad_spawner,
+        diff_drive_spawner,
     ])

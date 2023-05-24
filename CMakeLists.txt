@@ -33,7 +33,7 @@ if(BUILD_TESTING)
 endif()
 
 install(
-  DIRECTORY config description launch src meshes
+  DIRECTORY config description launch src
   DESTINATION share/${PROJECT_NAME}
 )
 
