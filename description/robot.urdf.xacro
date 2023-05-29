@@ -7,7 +7,7 @@
 
 <!-- BELOW:selector -->
 <xacro:if value="$(arg use_ros2_control)">
-    <xacro:include filename="ros2_control.xacro" />
+    <xacro:include filename="diffbot.ros2_control.xacro" />
 </xacro:if>
 <!-- If (use_ros2_control is false, it would run "gazebo_control") -->
 <xacro:unless value="$(arg use_ros2_control)">
