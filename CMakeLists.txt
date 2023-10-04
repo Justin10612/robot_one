@@ -1,4 +1,4 @@
-cmake_policy(SET CMP0148 NEW)
+# cmake_policy(SET CMP0148 NEW)
 cmake_minimum_required(VERSION 3.5)
 project(robot_one)
 
@@ -34,10 +34,8 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-install(
-  DIRECTORY config description launch 
-  DESTINATION share/${PROJECT_NAME}
-)
+install(DIRECTORY config description launch
+  DESTINATION share/${PROJECT_NAME})
 
 # ament_export_dependencies(rosidl_default_runtime)
 ament_package()
