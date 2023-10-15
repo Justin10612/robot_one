@@ -41,7 +41,7 @@
             <geometry>
                 <mesh filename="package://robot_one/description/meshes/chassis.stl" scale="0.001 0.001 0.001"/>
             </geometry>
-            <material name="Gazebo/white"/>
+            <material name="white"/>
         </visual>
         <!-- <collision>
             <geometry>
@@ -67,7 +67,7 @@
             <geometry>
                 <mesh filename="package://robot_one/description/meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
             </geometry>
-            <material name="Gazebo/blue"/>
+            <material name="blue"/>
         </visual>
         <!-- <collision>
             <geometry>
@@ -92,7 +92,7 @@
             <geometry>
                 <mesh filename="package://robot_one/description/meshes/gearbox.stl" scale="0.001 0.001 0.001"/>
             </geometry>
-            <material name="Gazebo/blue"/>
+            <material name="blue"/>
         </visual>
         <!-- <collision>
             <geometry>

@@ -12,27 +12,21 @@ def generate_launch_description():
     joy_params = os.path.join(get_package_share_directory('robot_one'),'config','joystick.yaml')
 
     joy_node = Node(
-            package='joy',
-            executable='joy_node',
-            parameters=[joy_params, {'use_sim_time': use_sim_time}],
-         )
+        package='joy',
+        executable='joy_node',
+        parameters=[joy_params, {'use_sim_time': use_sim_time}],
+    )
 
     teleop_node = Node(
-            package='teleop_twist_joy',
-            executable='teleop_node',
-            name='teleop',
-            parameters=[joy_params, {'use_sim_time': use_sim_time}],
-            remappings=[('/cmd_vel','/diff_cont/cmd_vel_unstamped')]
-         )
-
-    # twist_stamper = Node(
-    #         package='twist_stamper',
-    #         executable='twist_stamper',
-    #         parameters=[{'use_sim_time': use_sim_time}],
-    #         remappings=[('/cmd_vel_in','/diff_cont/cmd_vel_unstamped'),
-    #                     ('/cmd_vel_out','/diff_cont/cmd_vel')]
-    #      )
-
+        package='teleop_twist_joy',
+        executable='teleop_node',
+        name='teleop',
+        parameters=[joy_params, {'use_sim_time': use_sim_time}],
+        # # For connecting ot ros2_controller
+        # remappings=[('/cmd_vel','/diff_cont/cmd_vel_unstamped')]
+        # # For Twist MUX
+        remappings=[('/cmd_vel','/joystick_cmd_vel')]
+    ) 
 
     return LaunchDescription([
         DeclareLaunchArgument(

@@ -47,6 +47,7 @@ def generate_launch_description():
     #     )
 
     robot_description = Command(['ros2 param get --hide-type /robot_state_publisher robot_description'])
+    # robot_description = Command(['ros2 param get --hide-type /robot_state_publisher robot_description'])
     controller_params_file = os.path.join(get_package_share_directory(package_name),'config','robot_control.yaml')
 
     controller_manager = Node(
@@ -86,7 +87,7 @@ def generate_launch_description():
     # Launch them all!
     return LaunchDescription([
         rsp,
-        # joystick,
+        joystick,
         # twist_mux,
         delayed_controller_manager,
         delayed_joint_broad_spawner,
