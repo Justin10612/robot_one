@@ -82,6 +82,12 @@ def generate_launch_description():
         )
     )
 
+    # detection = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         [os.path.join(get_package_share_directory('detection'),'launch','detection.launch.py')]
+    #     )
+    # )
+
     # Launch them all!
     return LaunchDescription([
         rsp,
@@ -92,4 +98,5 @@ def generate_launch_description():
         delayed_joint_broad_spawner,
         delayed_diff_drive_spawner,
         # ros2_agent,
+        # detection,
     ])
