@@ -1,22 +1,26 @@
 import os
 
-from ament_index_python.packages import get_package_share_directory
-
 from launch import LaunchDescription
 from launch.actions import ExecuteProcess
+from launch_ros.actions import Node
 
 def generate_launch_description():   
-    # Note:Original command looks like 'docker run -it ...... --dev /dev/ttyACM0 -v6'
-    # Replace "-it" to "-d":Means the program will backgroud running
-    # Remove "-it"
-    docker_run_command = "docker run --rm -v /dev:/dev -v /dev/shm:/dev/shm --privileged --net=host microros/micro-ros-agent:foxy serial --dev /dev/ttyACM0 -v6"
-    
-    docker_container = ExecuteProcess(
-            cmd=["/bin/bash", "-c", docker_run_command],
-            output="screen",
+
+    set_serial_permission = ExecuteProcess(
+        cmd=["sudo", "chmod", "666", "/dev/ttyACM0"],
+        output='screen'
     )
+
+    micro_ros_agent = Node(
+        package='micro_ros_agent',
+        executable='micro_ros_agent',
+        name='micro_ros_agent',
+        namespace='micro_ros_agent',
+        output='screen',
+        arguments=['serial', '-b', '115200', '--dev', '/dev/ttyACM0'])
 
     # Launch!
     return LaunchDescription([
-        docker_container,
+        set_serial_permission,
+        micro_ros_agent,
     ])
