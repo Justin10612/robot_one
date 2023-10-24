@@ -1,8 +1,9 @@
 import os
 
 from launch import LaunchDescription
-from launch.actions import ExecuteProcess
+from launch.actions import ExecuteProcess, RegisterEventHandler
 from launch_ros.actions import Node
+from launch.event_handlers import OnProcessStart
 
 def generate_launch_description():   
 
@@ -18,9 +19,14 @@ def generate_launch_description():
         namespace='micro_ros_agent',
         output='screen',
         arguments=['serial', '-b', '115200', '--dev', '/dev/ttyACM0'])
+    
+    delayed_micro_ros_agent = RegisterEventHandler(
+    event_handler=OnProcessStart(
+        target_action=set_serial_permission,
+        on_start=[micro_ros_agent],))
 
     # Launch!
     return LaunchDescription([
         set_serial_permission,
-        micro_ros_agent,
+        delayed_micro_ros_agent,
     ])
