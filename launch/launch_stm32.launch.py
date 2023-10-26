@@ -27,6 +27,7 @@ def generate_launch_description():
 
     # Launch!
     return LaunchDescription([
-        set_serial_permission,
-        delayed_micro_ros_agent,
+        # set_serial_permission,
+        # delayed_micro_ros_agent,
+        micro_ros_agent,
     ])
