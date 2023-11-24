@@ -26,12 +26,6 @@ def generate_launch_description():
         ), launch_arguments={'use_sim_time': 'false', 'use_ros2_control': 'true'}.items()
     )
 
-    # ros2_agent = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource(
-    #         [os.path.join(get_package_share_directory(package_name),'launch','launch_stm32.launch.py')]
-    #     )
-    # )
-
     joystick = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory(package_name),'launch','joystick.launch.py'
@@ -81,12 +75,6 @@ def generate_launch_description():
             on_start=[joint_broad_spawner],
         )
     )
-
-    # detection = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource(
-    #         [os.path.join(get_package_share_directory('detection'),'launch','detection.launch.py')]
-    #     )
-    # )
 
     # Launch them all!
     return LaunchDescription([
