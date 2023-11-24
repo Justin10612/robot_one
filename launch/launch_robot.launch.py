@@ -81,10 +81,7 @@ def generate_launch_description():
         rsp,
         rb_controller,
         joystick,
-        # twist_mux,
         delayed_controller_manager,
         delayed_joint_broad_spawner,
         delayed_diff_drive_spawner,
-        # ros2_agent,
-        # detection,
     ])
