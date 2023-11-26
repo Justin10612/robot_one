@@ -43,10 +43,10 @@ def generate_launch_description():
         output='screen',
     )
 
-    human_follower_py = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            [os.path.join(get_package_share_directory('rb_controller'), 'launch', 'human_follower.launch.py')]
-        )
+    human_follower_cpp = Node(
+        package='human_follower_cpp',
+        executable='human_follower_pid',
+        output='screen',
     )
 
     twist_mux = Node(
@@ -65,6 +65,6 @@ def generate_launch_description():
         robot_controller,
         joystick,
         diff_drive_controller,
-        human_follower_py,
+        human_follower_cpp,
         twist_mux,
     ])
