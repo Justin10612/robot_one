@@ -4,7 +4,6 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import Command
 from launch_ros.actions import Node
 
 
@@ -16,6 +15,10 @@ def generate_launch_description():
 
     package_name='robot_one' #<--- CHANGE ME
 
+    twist_mux_params = os.path.join(get_package_share_directory(package_name),
+                                    'config',
+                                    'twist_mux.yaml')
+
     rsp = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             [os.path.join(get_package_share_directory(package_name),'launch','rsp.launch.py')]
@@ -23,15 +26,15 @@ def generate_launch_description():
     )
 
     joystick = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory(package_name),'launch','joystick.launch.py'
-        )]), launch_arguments={'use_sim_time': 'false'}.items()
+        PythonLaunchDescriptionSource(
+            [os.path.join(get_package_share_directory(package_name),'launch','joystick.launch.py')]
+        ), launch_arguments={'use_sim_time': 'false'}.items()
     )
 
-    rb_controller = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            [os.path.join(get_package_share_directory('rb_controller'),'launch','launch_rb_controller.launch.py')]
-        )
+    robot_controller = Node(
+        package='robot_controller_cpp',
+        executable='robot_controller_cpp',
+        output='screen',
     )
 
     diff_drive_controller = Node(
@@ -40,15 +43,28 @@ def generate_launch_description():
         output='screen',
     )
 
-    # robot_description = Command(['ros2 param get --hide-type /robot_state_publisher robot_description'])
-    # # robot_description = Command(['ros2 param get --hide-type /robot_state_publisher robot_description'])
-    # controller_params_file = os.path.join(get_package_share_directory(package_name),'config','robot_control.yaml')
+    human_follower_py = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            [os.path.join(get_package_share_directory('rb_controller'), 'launch', 'human_follower.launch.py')]
+        )
+    )
+
+    twist_mux = Node(
+        package="twist_mux",
+        executable="twist_mux",
+        parameters=[
+            {'use_sim_time': False},
+            twist_mux_params],
+        # remappings=[('/cmd_vel_out','/diff_cont/cmd_vel_unstamped')]
+    )
 
 
     # Launch them all!
     return LaunchDescription([
         rsp,
-        rb_controller,
+        robot_controller,
         joystick,
         diff_drive_controller,
+        human_follower_py,
+        twist_mux,
     ])
