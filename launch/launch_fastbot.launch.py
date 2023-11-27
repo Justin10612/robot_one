@@ -17,7 +17,7 @@ def generate_launch_description():
 
     twist_mux_params = os.path.join(get_package_share_directory(package_name),
                                     'config',
-                                    'twist_mux.yaml')
+                                    'twist_mux_1.yaml')
 
     rsp = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -55,7 +55,7 @@ def generate_launch_description():
         parameters=[
             {'use_sim_time': False},
             twist_mux_params],
-        # remappings=[('/cmd_vel_out','/diff_cont/cmd_vel_unstamped')]
+        remappings=[('/cmd_vel_out','/cmd_vel')]
     )
 
 

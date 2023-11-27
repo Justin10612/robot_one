@@ -11,21 +11,13 @@ twist_mux:
       follow:
         topic: follow_cmd_vel
         timeout: 0.5
-        priority: 200
+        priority: 180
       joystick:
         topic: joystick_cmd_vel
         timeout: 0.5
         priority: 150
     locks:
-      # follow:
-      #   topic: follow_bool
-      #   timeout: 0.0
-      #   priority: 100
-      # joystick:
-      #   topic: teleop_bool
-      #   timeout: 0.0
-      #   priority: 0
       e_stop:
         topic: idle_bool
         timeout: 0.0
-        priority: 255
+        priority: 0
