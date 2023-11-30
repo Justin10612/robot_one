@@ -58,6 +58,12 @@ def generate_launch_description():
         remappings=[('/cmd_vel_out','/cmd_vel')]
     )
 
+    depth_filter = Node(
+        package='rb_controller',
+        executable='depth_kalman',
+        output='screen'
+    )
+
 
     # Launch them all!
     return LaunchDescription([
@@ -67,4 +73,5 @@ def generate_launch_description():
         diff_drive_controller,
         human_follower_cpp,
         twist_mux,
+        depth_filter,
     ])
