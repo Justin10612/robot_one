@@ -8,6 +8,10 @@
 twist_mux:
   ros__parameters:
     topics:
+      idle_mode:
+        topic: idle_cmd_vel
+        timeout: 0.5
+        priority: 255
       follow:
         topic: follow_cmd_vel
         timeout: 0.5
@@ -16,8 +20,8 @@ twist_mux:
         topic: joystick_cmd_vel
         timeout: 0.5
         priority: 150
-    locks:
-      idle_mode:
-        topic: idle_bool
-        timeout: 0.0
-        priority: 255
+    # locks:
+    #   idle_mode:
+    #     topic: idle_bool
+    #     timeout: 0.0
+    #     priority: 255
