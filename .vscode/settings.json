@@ -1,3 +1,35 @@
 {
-    "cmake.configureOnOpen": false
+    "cmake.configureOnOpen": false,
+    "python.autoComplete.extraPaths": [
+        "/home/sss0301/ros2_ws/build/yolov5_ros",
+        "/home/sss0301/ros2_ws/install/yolov5_ros/lib/python3.8/site-packages",
+        "/home/sss0301/ros2_ws/build/uwb_localization",
+        "/home/sss0301/ros2_ws/install/uwb_localization/lib/python3.8/site-packages",
+        "/home/sss0301/ros2_ws/build/robot_daq",
+        "/home/sss0301/ros2_ws/install/robot_daq/lib/python3.8/site-packages",
+        "/home/sss0301/ros2_ws/install/realsense2_camera_msgs/lib/python3.8/site-packages",
+        "/home/sss0301/ros2_ws/build/rb_controller",
+        "/home/sss0301/ros2_ws/install/rb_controller/lib/python3.8/site-packages",
+        "/home/sss0301/ros2_ws/install/micro_ros_msgs/lib/python3.8/site-packages",
+        "/home/sss0301/ros2_ws/install/drive_base_msgs/lib/python3.8/site-packages",
+        "/home/sss0301/ros2_ws/build/detection",
+        "/home/sss0301/ros2_ws/install/detection/lib/python3.8/site-packages",
+        "/opt/ros/foxy/lib/python3.8/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/sss0301/ros2_ws/build/yolov5_ros",
+        "/home/sss0301/ros2_ws/install/yolov5_ros/lib/python3.8/site-packages",
+        "/home/sss0301/ros2_ws/build/uwb_localization",
+        "/home/sss0301/ros2_ws/install/uwb_localization/lib/python3.8/site-packages",
+        "/home/sss0301/ros2_ws/build/robot_daq",
+        "/home/sss0301/ros2_ws/install/robot_daq/lib/python3.8/site-packages",
+        "/home/sss0301/ros2_ws/install/realsense2_camera_msgs/lib/python3.8/site-packages",
+        "/home/sss0301/ros2_ws/build/rb_controller",
+        "/home/sss0301/ros2_ws/install/rb_controller/lib/python3.8/site-packages",
+        "/home/sss0301/ros2_ws/install/micro_ros_msgs/lib/python3.8/site-packages",
+        "/home/sss0301/ros2_ws/install/drive_base_msgs/lib/python3.8/site-packages",
+        "/home/sss0301/ros2_ws/build/detection",
+        "/home/sss0301/ros2_ws/install/detection/lib/python3.8/site-packages",
+        "/opt/ros/foxy/lib/python3.8/site-packages"
+    ]
 }

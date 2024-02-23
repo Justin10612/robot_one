@@ -1,0 +1,30 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/sss0301/ros2_ws/install/realsense2_camera_msgs/include/**",
+        "/home/sss0301/ros2_ws/install/micro_ros_agent/include/**",
+        "/home/sss0301/ros2_ws/install/micro_ros_msgs/include/**",
+        "/home/sss0301/ros2_ws/install/drive_base_msgs/include/**",
+        "/home/sss0301/ros2_ws/install/diffdrive_stm32f446re/include/**",
+        "/opt/ros/foxy/include/**",
+        "/home/sss0301/ros2_ws/src/diff_drive_controller_cpp/include/**",
+        "/home/sss0301/ros2_ws/src/diffdrive_stm32f446re/include/**",
+        "/home/sss0301/ros2_ws/src/human_follower_cpp/include/**",
+        "/home/sss0301/ros2_ws/src/robot_controller_cpp/include/**",
+        "/home/sss0301/ros2_ws/src/uros/micro-ROS-Agent/micro_ros_agent/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
