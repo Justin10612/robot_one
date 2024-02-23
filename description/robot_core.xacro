@@ -26,7 +26,6 @@
 
     </link>
 
-
     <!-- CHASSIS LINK -->
 
     <joint name="chassis_joint" type="fixed">
@@ -34,6 +33,8 @@
         <child link="chassis"/>
         <origin xyz="0 0 0"/>
     </joint>
+
+    <xacro:include filename="lidar.xacro" />
 
     <link name="chassis">
         <visual>

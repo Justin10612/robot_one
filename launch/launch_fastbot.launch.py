@@ -31,6 +31,12 @@ def generate_launch_description():
         ), launch_arguments={'use_sim_time': 'false'}.items()
     )
 
+    lidar = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            [os.path.join(get_package_share_directory("ydlidar_ros2_driver"),'launch','ydlidar_launch.py')]
+        )
+    )
+
     robot_controller = Node(
         package='robot_controller_cpp',
         executable='robot_controller_cpp',
@@ -70,6 +76,7 @@ def generate_launch_description():
         rsp,
         robot_controller,
         joystick,
+        lidar,
         diff_drive_controller,
         human_follower_cpp,
         twist_mux,
