@@ -80,5 +80,4 @@ def generate_launch_description():
         diff_drive_controller,
         human_follower_cpp,
         twist_mux,
-        depth_filter,
     ])
