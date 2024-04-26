@@ -70,14 +70,21 @@ def generate_launch_description():
         output='screen'
     )
 
+    uwb_sensor = Node(
+        package='uwb_localization',
+        executable='uwb_receiver',
+        output='screen'
+    )
+
 
     # Launch them all!
     return LaunchDescription([
         rsp,
         robot_controller,
         joystick,
-        lidar,
+        # lidar,
         diff_drive_controller,
         human_follower_cpp,
         twist_mux,
+        uwb_sensor,
     ])
