@@ -8,7 +8,7 @@ from launch.event_handlers import OnProcessStart
 def generate_launch_description():   
 
     set_serial_permission = ExecuteProcess(
-        cmd=["sudo", "chmod", "666", "/dev/ttyACM0"],
+        cmd=["sudo", "chmod", "666", "/dev/ttyACM4"],
         output='screen'
     )
 
@@ -18,7 +18,7 @@ def generate_launch_description():
         name='micro_ros_agent',
         namespace='micro_ros_agent',
         output='screen',
-        arguments=['serial', '-b', '115200', '--dev', '/dev/ttyACM0'])
+        arguments=['serial', '-b', '115200', '--dev', '/dev/ttyACM4'])
     
     delayed_micro_ros_agent = RegisterEventHandler(
     event_handler=OnProcessStart(
