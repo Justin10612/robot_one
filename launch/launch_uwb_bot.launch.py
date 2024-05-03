@@ -76,6 +76,11 @@ def generate_launch_description():
         output='screen'
     )
 
+    uwb_localization = Node(
+        package='uwb_localization',
+        executable='3d_localization',
+        output='screen'
+    )
 
     # Launch them all!
     return LaunchDescription([
@@ -87,4 +92,5 @@ def generate_launch_description():
         human_follower_cpp,
         twist_mux,
         uwb_sensor,
+        uwb_localization
     ])
