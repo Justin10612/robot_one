@@ -7,6 +7,7 @@ repos=(
     "https://github.com/Justin10612/human_follower_cpp.git"
     "https://github.com/Justin10612/diffdrive_stm32f446re.git"
     "https://github.com/Justin10612/uwb_localization.git"
+
     # Add more repositories as needed
 )
 
@@ -26,3 +27,10 @@ done
 wait
 
 echo "All repositories cloned successfully!"
+
+sudo apt-get install ros-foxy-xacro
+sudo apt-get install ros-foxy-ros2-control
+sudo apt-get install ros-foxy-ros2-controllers
+sudo apt-get install ros-foxy-twist-mux
+
+echo "All pkg cloned successfully!"
