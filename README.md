@@ -13,8 +13,7 @@
 ## 依賴性
 
 `robot_one` 套件依賴以下套件：
-
-- `uwb_localization`: 提供超廣頻定位功能。
+- `uwb_localization`: 提供UWB功能。
 
 ## 安裝:
 **Run following script file**
@@ -29,24 +28,26 @@ The package u need:
 sudo apt-get install ros-foxy-xacro
 sudo apt-get install ros-foxy-ros2-control
 sudo apt-get install ros-foxy-ros2-controllers
-sudo apt-get install ros-foxy-twist_mux
+sudo apt-get install ros-foxy-twist-mux
 ```
 - For gazebo sim:
+    ```bash
+    sudo apt install ros-foxy-ros2-control ros-foxy-ros2-controllers ros-foxy-gazebo-ros2-control
+    ```
+
+## USB permission:
 ```bash
-sudo apt install ros-foxy-ros2-control ros-foxy-ros2-controllers ros-foxy-gazebo-ros2-control
+sudo usermod -a -G dialout $USER
 ```
+
+
 ## 使用方法
+### Simulation:
 要啟動模擬，請執行以下命令：
 ```bash
 ros2 launch robot_one launch_uwb_bot.launch.py
 ```
 這將啟動 robot_one 套件，並使用 uwb_localization 套件進行模擬。
+### YOLOv5s human following:
 
-## 啟動文件
-套件包含以下啟動文件：
-
-`launch_uwb_bot.launch.py`: 啟動模擬，並使用 `uwb_localization` 套件。
-配置文件
-套件包含以下配置文件：
-- `config/robot_one.yaml: `機器人的配置文件。
-您可以根據需要修改這些文件
+### UWB human following:

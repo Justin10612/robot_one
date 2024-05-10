@@ -6,6 +6,7 @@ repos=(
     "https://github.com/Justin10612/robot_daq.git"
     "https://github.com/Justin10612/human_follower_cpp.git"
     "https://github.com/Justin10612/diffdrive_stm32f446re.git"
+    "https://github.com/Justin10612/uwb_localization.git"
     # Add more repositories as needed
 )
 
