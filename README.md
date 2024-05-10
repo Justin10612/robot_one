@@ -18,7 +18,7 @@
 ## 安裝:
 **Run following script file**
 ```bash
-cd robot_one
+# 確認你的檔案路徑在src下
 chmod +x clone_repos.sh
 ./clone_repos.sh
 ```
@@ -26,20 +26,17 @@ chmod +x clone_repos.sh
 The package u need:
 ```bash
 sudo apt-get install ros-foxy-xacro
-sudo apt-get install ros-foxy-ros2-control
+sudo apt-get install ros-foxy-ros2-control ros-foxy-gazebo-ros2-control
 sudo apt-get install ros-foxy-ros2-controllers
 sudo apt-get install ros-foxy-twist-mux
 ```
-- For gazebo sim:
-    ```bash
-    sudo apt install ros-foxy-ros2-control ros-foxy-ros2-controllers ros-foxy-gazebo-ros2-control
-    ```
 
 ## USB permission:
+若在連接時遇到USB Permission Denied的問題
 ```bash
 sudo usermod -a -G dialout $USER
+reboot
 ```
-
 
 ## 使用方法
 ### Simulation:

@@ -34,23 +34,11 @@ def generate_launch_description():
         ), launch_arguments={'use_sim_time': 'false'}.items()
     )
 
-    # lidar = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource(
-    #         [os.path.join(get_package_share_directory("ydlidar_ros2_driver"),'launch','ydlidar_launch.py')]
-    #     )
-    # )
-
     robot_controller = Node(
         package='robot_controller_cpp',
         executable='robot_controller_cpp',
         output='screen',
     )
-
-    # diff_drive_controller = Node(
-    #     package='diff_drive_controller_cpp',
-    #     executable='diff_cont_cpp',
-    #     output='screen',
-    # )
 
     human_follower_cpp = Node(
         package='human_follower_cpp',
@@ -67,11 +55,6 @@ def generate_launch_description():
         remappings=[('/cmd_vel_out','/diff_cont/cmd_vel_unstamped')]
     )
 
-    depth_filter = Node(
-        package='rb_controller',
-        executable='depth_kalman',
-        output='screen'
-    )
 
     uwb_sensor = Node(
         package='uwb_localization',
@@ -128,7 +111,6 @@ def generate_launch_description():
         rsp,
         robot_controller,
         joystick,
-        # lidar,
         delayed_controller_manager,
         delayed_diff_drive_spawner,
         delayed_joint_broad_spawner,
