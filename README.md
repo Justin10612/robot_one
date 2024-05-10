@@ -16,7 +16,14 @@
 
 - `uwb_localization`: 提供超廣頻定位功能。
 
-## 安裝
+## 安裝:
+**Run following script file**
+```bash
+cd robot_one
+chmod +x clone_repos.sh
+./clone_repos.sh
+```
+
 The package u need:
 ```bash
 sudo apt-get install ros-foxy-xacro
