@@ -10,7 +10,7 @@
 - `src`: 包含機器人的源代碼和配置文件。
 - `config`: 包含機器人的配置文件。
 
-## 依賴性
+## 你會需要用到的套件跟pkg
 
 `robot_one` 套件依賴以下套件：
 - `uwb_localization`: 提供UWB功能。
@@ -38,13 +38,28 @@ sudo usermod -a -G dialout $USER
 reboot
 ```
 
-## 使用方法
-### Simulation:
-要啟動模擬，請執行以下命令：
-```bash
-ros2 launch robot_one launch_uwb_bot.launch.py
-```
-這將啟動 robot_one 套件，並使用 uwb_localization 套件進行模擬。
+## 使用方法：
 ### YOLOv5s human following:
 
 ### UWB human following:
+這將啟動 uwb_localization 以及robot_follower_cpp，並使用 uwb_localization 進行跟隨。
+**Setp 1:UWB連接**
+連接上USB Hub，上面包含Arduino以及三個UWB模組，沒意外的話電腦Serial Port的編號會和程式裡面預設的一樣。若有不一樣請去`uwb_localization`這個pakage裡面修改`localization.py`的程式。
+**Step 2:F710搖桿連接**
+接上搖桿的無線接收器，收納在搖桿電池蓋下。
+**Setp 3:機器人launch file**
+```bash
+ros2 launch robot_one launch_uwb_bot.launch.py
+```
+**Setp 4:STM32連接**
+接上機器人上連接STM32的USB線，運行：
+```bash
+ros2 launch robot_one launch_stm32.launch.py
+```
+若畫面顯示找不到serial poart，就透過
+```bash
+ls -l /dev/ttyACM*
+```
+確認一下新接上去的stm32的接口編號，然後去修改`launch_stm32.launch.py`程式。
+**Setp 5:Reset STM32**
+有連接上後，去按一下STM32上的Reset鍵(塑膠盒上有挖了一個洞方便你按)。
