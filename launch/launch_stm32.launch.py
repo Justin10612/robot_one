@@ -6,9 +6,12 @@ from launch_ros.actions import Node
 from launch.event_handlers import OnProcessStart
 
 def generate_launch_description():   
-
+    
+    # Change Meeee~~~~~~
+    stm32_serial_port = "/dev/ttyACM4"
+    
     set_serial_permission = ExecuteProcess(
-        cmd=["sudo", "chmod", "666", "/dev/ttyACM4"],
+        cmd=["sudo", "chmod", "666", stm32_serial_port],
         output='screen'
     )
 
@@ -18,7 +21,7 @@ def generate_launch_description():
         name='micro_ros_agent',
         namespace='micro_ros_agent',
         output='screen',
-        arguments=['serial', '-b', '115200', '--dev', '/dev/ttyACM4'])
+        arguments=['serial', '-b', '115200', '--dev', stm32_serial_port])
     
     delayed_micro_ros_agent = RegisterEventHandler(
     event_handler=OnProcessStart(
