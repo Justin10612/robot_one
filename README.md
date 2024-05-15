@@ -10,11 +10,6 @@
 - `src`: 包含機器人的源代碼和配置文件。
 - `config`: 包含機器人的配置文件。
 
-## 你會需要用到的套件跟pkg
-
-`robot_one` 套件依賴以下套件：
-- `uwb_localization`: 提供UWB功能。
-
 ## 安裝:
 **Run following script file**
 ```bash
